@@ -9,7 +9,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
 
-  const PORT = configService.get('PORT', 3000);
+  const PORT = configService.get<number>('PORT', 3000);
 
   //Support setting a Global Prefix via environment variables
   const GLOBAL_PREFIX = configService.get('GLOBAL_PREFIX');
